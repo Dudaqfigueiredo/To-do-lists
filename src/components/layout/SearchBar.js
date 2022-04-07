@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { searchLogs } from '../../actions/logActions';
-
+import "../../App.css";
 const SearchBar = ({ searchLogs }) => {
   const text = useRef('');
 
@@ -18,7 +18,7 @@ const SearchBar = ({ searchLogs }) => {
             <input
               id='search'
               type='search'
-              placeholder='Search Logs..'
+              placeholder='Search Tasks..'
               ref={text}
               onChange={onChange}
             />

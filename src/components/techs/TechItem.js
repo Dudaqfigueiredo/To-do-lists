@@ -7,7 +7,7 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 const TechItem = ({ tech: { id, firstName, lastName }, deleteTech }) => {
   const onDelete = () => {
     deleteTech(id);
-    M.toast({ html: 'Technician deleted' });
+    M.toast({ html: 'Employee deleted' });
   };
 
   return (

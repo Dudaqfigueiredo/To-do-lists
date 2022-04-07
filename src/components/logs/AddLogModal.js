@@ -12,7 +12,7 @@ const AddLogModal = ({ addLog }) => {
 
   const onSubmit = () => {
     if (message === '' || tech === '') {
-      M.toast({ html: 'Please enter a message and tech' });
+      M.toast({ html: 'Please enter a task and employee' });
     } else {
       const newLog = {
         message,
@@ -35,7 +35,7 @@ const AddLogModal = ({ addLog }) => {
   return (
     <div id='add-log-modal' className='modal' style={modalStyle}>
       <div className='modal-content'>
-        <h4>Enter System Log</h4>
+        <h4>Enter Task</h4>
         <div className='row'>
           <div className='input-field'>
             <input
@@ -45,7 +45,7 @@ const AddLogModal = ({ addLog }) => {
               onChange={e => setMessage(e.target.value)}
             />
             <label htmlFor='message' className='active'>
-              Log Message
+              Task
             </label>
           </div>
         </div>
@@ -59,7 +59,7 @@ const AddLogModal = ({ addLog }) => {
               onChange={e => setTech(e.target.value)}
             >
               <option value='' disabled>
-                Select Technician
+                Select Employee
               </option>
               <TechSelectOptions />
             </select>

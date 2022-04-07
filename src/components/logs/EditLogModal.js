@@ -43,7 +43,7 @@ const EditLogModal = ({ current, updateLog }) => {
   return (
     <div id='edit-log-modal' className='modal' style={modalStyle}>
       <div className='modal-content'>
-        <h4>Enter System Log</h4>
+        <h4>Enter Task</h4>
         <div className='row'>
           <div className='input-field'>
             <input
@@ -64,7 +64,7 @@ const EditLogModal = ({ current, updateLog }) => {
               onChange={e => setTech(e.target.value)}
             >
               <option value='' disabled>
-                Select Technician
+                Select Employee
               </option>
               <TechSelectOptions />
             </select>

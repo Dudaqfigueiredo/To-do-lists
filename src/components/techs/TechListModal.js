@@ -13,7 +13,7 @@ const TechListModal = ({ getTechs, tech: { techs, loading } }) => {
   return (
     <div id='tech-list-modal' className='modal'>
       <div className='modal-content'>
-        <h4>Technician List</h4>
+        <h4>Employee List</h4>
         <ul className='collection'>
           {!loading &&
             techs !== null &&

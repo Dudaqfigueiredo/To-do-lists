@@ -10,33 +10,19 @@ import {
   CLEAR_CURRENT
 } from './types';
 
-// export const getLogs = () => {
-//   return async dispatch => {
-//     setLoading();
-
-//     const res = await fetch('/logs');
-//     const data = await res.json();
-
-//     dispatch({
-//       type: GET_LOGS,
-//       payload: data
-//     });
-//   };
-// };
-
 // Get logs from server
-export const getLogs = () => async dispatch => {
-  try {
-    setLoading();
+export const getLogs = () => async dispatch => { //Async - Dizendo que é uma função assincrona. Então, todas as atividades devem parar para essa atividade ser feita. O Await é para mostrar o que se deve esperar para voltar as atividades.
+  try { //Tentar
+    setLoading(); 
 
-    const res = await fetch('/logs');
-    const data = await res.json();
+    const res = await fetch('/logs'); //Pega os logs que estão no /logs no db.json (dado mockado que deveria estar no back mas está no front)
+    const data = await res.json(); //Res vem com dois parametros que é o status e o data, então pegaremos o data. Transformando em um dado que o JS entenda usando o .json() 
 
     dispatch({
       type: GET_LOGS,
       payload: data
     });
-  } catch (err) {
+  } catch (err) { //Caso não conseguir, capturar esse erro e tratá-lo
     dispatch({
       type: LOGS_ERROR,
       payload: err.response.statusText
@@ -45,13 +31,13 @@ export const getLogs = () => async dispatch => {
 };
 
 // Add new log
-export const addLog = log => async dispatch => {
+export const addLog = (log) => async dispatch => { //Ele recebe o log
   try {
     setLoading();
-
-    const res = await fetch('/logs', {
+    //Todo fetch por padrão é GET, então passo as configurações dele pois ele será um POST
+    const res = await fetch('/logs', { 
       method: 'POST',
-      body: JSON.stringify(log),
+      body: JSON.stringify(log), //Os dados que eu quero guardar. O log vai estar formado em objeto então transformamos em string
       headers: {
         'Content-Type': 'application/json'
       }
@@ -123,7 +109,7 @@ export const searchLogs = text => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch(`/logs?q=${text}`);
+    const res = await fetch(`/logs?q=${text}`); 
     const data = await res.json();
 
     dispatch({
@@ -154,7 +140,7 @@ export const clearCurrent = () => {
 };
 
 // Set loading to true
-export const setLoading = () => {
+export const setLoading = () => { //Está esperando
   return {
     type: SET_LOADING
   };

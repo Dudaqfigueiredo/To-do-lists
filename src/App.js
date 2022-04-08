@@ -10,16 +10,16 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css/dist/js/materialize.min.js';
+import M from 'materialize-css/dist/js/materialize.min.js'; //Diferente do MaterialUI, não precisa ficar fazendo importações, se trabalha com classes
 import './App.css';
 
 const App = () => {
-  useEffect(() => {
+  useEffect(() => { //Recebe instruções e quando deve executar essas funções. Nesse caso, está iniciando o materialize e o [] quer dizer que vai ocorrer na abertura do navegador(somente)
     // Init Materialize JS
     M.AutoInit();
-  });
+  }, []); //[] -> dependencias 
   return (
-    <Provider store={store}>
+    <Provider store={store}> {/* Redux e ele está mostrando onde vai ser usado o redux */}
       <Fragment>
         <SearchBar />
         <div className='container'>

@@ -13,7 +13,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch (action.type) {
+  switch (action.type) { //If gigante, entre parenteses a variavel que será comparado em cada caso
     case GET_TECHS:
       return {
         ...state,
@@ -29,7 +29,7 @@ export default (state = initialState, action) => {
     case DELETE_TECH:
       return {
         ...state,
-        techs: state.techs.filter(tech => tech.id !== action.payload),
+        techs: state.techs.filter(tech => tech.id !== action.payload), //Filter -> Todo mundo que for diferente do id que guardei no payload, ele vai retornar. Logo, os que são do ID selecionado, não será mostrado
         loading: false
       };
     case SET_LOADING:

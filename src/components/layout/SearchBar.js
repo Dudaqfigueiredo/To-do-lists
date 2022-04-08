@@ -7,7 +7,7 @@ const SearchBar = ({ searchLogs }) => {
   const text = useRef('');
 
   const onChange = e => {
-    searchLogs(text.current.value);
+    searchLogs(text.current.value); //retornar valor atual no input
   };
 
   return (
